@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Mohammad Rehban | Power Platform Consultant & MSc Student</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            padding: 4rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+            height: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            transition: width 2s ease;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .project-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-category {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            color: #764ba2;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .learning-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .learning-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .learning-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-list {
+            list-style: none;
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        .resource-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .download-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85%;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .modal-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .modal-content ul, .modal-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .modal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                gap: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                padding: 1.5rem;
+            }
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">SMR Hub</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#learning">Learning</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-on-scroll">Syed Mohammad Rehban</h1>
+                    <p class="animate-on-scroll">Microsoft Power Platform Consultant | Dynamics 365 CRM Administrator | MSc Student</p>
+                    <p class="animate-on-scroll">Passionate about automating business processes and creating insightful dashboards for UK organisations</p>
+                    
+                    <div class="hero-stats animate-on-scroll">
+                        <div class="stat-item">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1.5+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-buttons animate-on-scroll">
+                        <a href="#projects" class="cta-button cta-primary">View My Work</a>
+                        <a href="#learning" class="cta-button cta-secondary">Free Resources</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Technical Skills & Experience</h2>
+                <div class="section-intro animate-on-scroll">
+                    Currently pursuing my MSc in Information Systems while gaining hands-on experience with Microsoft Power Platform. I combine academic learning with practical problem-solving to deliver meaningful business solutions.
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card animate-on-scroll">
+                        <h3>Microsoft Power Platform</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <p>Power BI Dashboard Creation • Power Automate Workflows • Basic Power Apps Development</p>
+                        <p><strong>PL-300 Certified</strong> | PL-200 In Progress</p>
+                    </div>
+                    <div class="skill-card animate-on-scroll">
+                        <h3>Dynamics 365 CRM</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                        <p>User Management • Basic Customisation • Data Import/Export • Reporting</p>
+                    </div>
+                    <div class="skill-card animate-on-scroll">
+                        <h3>Data Analysis & Research</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                        <p>SQL Queries • Python Programming • Statistical Analysis • Academic Research</p>
+                    </div>
+                    <div class="skill-card animate-on-scroll">
+                        <h3>Process Improvement</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 68%"></div>
+                        </div>
+                        <p>Workflow Automation • Data Quality • User Training • Documentation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Featured Projects</h2>
+                <div class="section-intro animate-on-scroll">
+                    Real-world implementations combining academic learning with practical business solutions. Each project represents growth in technical skills and professional development.
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-header">
+                            <h3>Fundraising Campaign Analytics Dashboard</h3>
+                            <p>Campaign to Protect Rural England (CPRE) • May 2024 - Present</p>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Challenge:</strong> CPRE needed better visibility into their fundraising campaign performance across multiple channels and donor segments.</p>
+                            <p><strong>My Role:</strong> Developed Power BI dashboards and automated data workflows to track donations, analyze donor patterns, and support campaign decision-making.</p>
+                            <p><strong>What I Built:</strong></p>
+                            <ul>
+                                <li>Interactive Power BI dashboard showing real-time donation tracking</li>
+                                <li>Donor segmentation analysis by demographics and giving history</li>
+                                <li>Campaign performance metrics across direct mail, digital, and events</li>
+                                <li>Automated data refresh from Dynamics 365 CRM</li>
+                            </ul>
+                            <p><strong>Learning Outcomes:</strong> Gained hands-on experience with real-world data challenges, learned to balance stakeholder requirements with technical constraints, improved my DAX and data modeling skills.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">Dynamics 365</span>
+                                <span class="tech-tag">Power Automate</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">DAX</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">📊 Dashboard Screenshots</a>
+                                <a href="#" class="project-link">📖 Project Overview</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-header">
+                            <h3>Volunteer Management System Integration</h3>
+                            <p>CPRE Data Integration Project • June - August 2024</p>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Challenge:</strong> Manual data entry from volunteer management platform to Dynamics 365 was time-consuming and error-prone.</p>
+                            <p><strong>My Solution:</strong> Created automated Power Automate flows to sync volunteer data between systems, eliminating manual work and improving data accuracy.</p>
+                            <p><strong>Technical Implementation:</strong></p>
+                            <ul>
+                                <li>Built Power Automate cloud flows with scheduled triggers</li>
+                                <li>Implemented data transformation and validation logic</li>
+                                <li>Created error handling and notification systems</li>
+                                <li>Set up duplicate detection and data quality checks</li>
+                            </ul>
+                            <p><strong>Key Learning:</strong> This was my first major API integration project. I learned about REST APIs, data mapping, and the importance of robust error handling in automated systems.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Power Automate</span>
+                                <span class="tech-tag">REST APIs</span>
+                                <span class="tech-tag">Data Integration</span>
+                                <span class="tech-tag">Dynamics 365</span>
+                                <span class="tech-tag">JSON</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">⚡ Flow Architecture</a>
+                                <a href="#" class="project-link">📝 Integration Guide</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-header">
+                            <h3>Customer Loyalty Prediction Model</h3>
+                            <p>MSc Information Systems Dissertation • University of West London • 2024</p>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Research Question:</strong> Can machine learning techniques predict customer loyalty patterns in the UK fashion retail sector?</p>
+                            <p><strong>My Approach:</strong> Conducted comprehensive analysis using Python and statistical methods to identify key loyalty drivers and build predictive models.</p>
+                            <p><strong>Methodology:</strong></p>
+                            <ul>
+                                <li>Data collection and cleaning from multiple retail datasets</li>
+                                <li>Exploratory data analysis using Python pandas and matplotlib</li>
+                                <li>Feature engineering and selection for loyalty indicators</li>
+                                <li>Applied machine learning algorithms (logistic regression, random forest)</li>
+                                <li>Model validation and performance evaluation</li>
+                            </ul>
+                            <p><strong>Skills Developed:</strong> Advanced Python programming, statistical analysis, research methodology, academic writing, and presenting technical findings to non-technical audiences.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Statistical Analysis</span>
+                                <span class="tech-tag">Research</span>
+                                <span class="tech-tag">Data Science</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">📊 Analysis Results</a>
+                                <a href="#" class="project-link">📄 Research Paper</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-header">
+                            <h3>Personal Expense Analytics Dashboard</h3>
+                            <p>Self-Directed Learning Project • September 2024</p>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Goal:</strong> Create a comprehensive personal finance dashboard to track expenses, identify spending patterns, and improve budgeting decisions.</p>
+                            <p><strong>What I Built:</strong> Interactive Power BI dashboard connected to bank statement data with automated categorization and trend analysis.</p>
+                            <p><strong>Features Implemented:</strong></p>
+                            <ul>
+                                <li>Automated expense categorization using Power Query</li>
+                                <li>Monthly and yearly spending trend visualizations</li>
+                                <li>Budget vs actual comparison with variance analysis</li>
+                                <li>Interactive filters for date ranges and categories</li>
+                                <li>Key performance indicators for financial health</li>
+                            </ul>
+                            <p><strong>Personal Impact:</strong> Reduced unnecessary spending by 20% and improved my understanding of personal financial patterns.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">Power Query</span>
+                                <span class="tech-tag">DAX</span>
+                                <span class="tech-tag">Data Visualization</span>
+                                <span class="tech-tag">Personal Finance</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">📊 Dashboard Demo</a>
+                                <a href="#" class="project-link">💡 Tutorial Guide</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Learning Journey Blog</h2>
+                <div class="section-intro animate-on-scroll">
+                    Documenting my experiences learning Power Platform, sharing lessons from real projects, and connecting with the community. Join me on this journey from student to professional.
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card animate-on-scroll">
+                        <div class="blog-image">📊</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Learning Journey</span>
+                                <span>Dec 15, 2024</span>
+                            </div>
+                            <h3>My Power BI Learning Journey: From Zero to Dashboard</h3>
+                            <p>Six months ago, I had never opened Power BI. Today, I'm building dashboards for real organizations. Here's how I went from complete beginner to PL-300 certified, including the mistakes I made and lessons I learned...</p>
+                            <a href="#" class="read-more" onclick="openModal('blogModal1')">Read More →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-on-scroll">
+                        <div class="blog-image">⚡</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Power Automate</span>
+                                <span>Dec 10, 2024</span>
+                            </div>
+                            <h3>5 Power Automate Mistakes I Made (So You Don't Have To)</h3>
+                            <p>Building my first automated workflows taught me valuable lessons the hard way. Here are the top mistakes I made during my volunteer data integration project at CPRE, and how you can avoid them...</p>
+                            <a href="#" class="read-more" onclick="openModal('blogModal2')">Read More →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-on-scroll">
+                        <div class="blog-image">🔧</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Dynamics 365</span>
+                                <span>Dec 5, 2024</span>
+                            </div>
+                            <h3>Getting Started with Dynamics 365: A Student's Perspective</h3>
+                            <p>As an MSc student working with Dynamics 365 at CPRE, I've learned that CRM isn't just about storing contact information. Here's what I wish I knew when starting, plus practical tips for other students and beginners...</p>
+                            <a href="#" class="read-more" onclick="openModal('blogModal3')">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning" class="section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Free Learning Resources</h2>
+                <div class="section-intro animate-on-scroll">
+                    Resources I've created based on my learning journey from student to consultant. Everything here is free and designed to help fellow learners avoid common pitfalls and accelerate their progress.
+                </div>
+                <div class="learning-grid">
+                    <div class="learning-card animate-on-scroll">
+                        <div class="learning-icon">📚</div>
+                        <h3>Power BI Beginner's Survival Kit</h3>
+                        <p>Everything I wish I had when starting my Power BI journey. Based on real projects and common beginner struggles.</p>
+                        <ul class="resource-list">
+                            <li>✅ My First Dashboard Template (charity fundraising theme)</li>
+                            <li>✅ UK Sample Dataset (realistic fundraising data)</li>
+                            <li>✅ DAX Cheat Sheet - 15 Essential Functions</li>
+                            <li>✅ Common Mistakes Checklist</li>
+                            <li>✅ PL-300 Study Notes (my actual exam prep)</li>
+                            <li>✅ Dashboard Design Do's and Don'ts</li>
+                        </ul>
+                        <a href="#" class="download-btn">Download Kit (12MB PDF + PBIX)</a>
+                    </div>
+
+                    <div class="learning-card animate-on-scroll">
+                        <div class="learning-icon">🎓</div>
+                        <h3>Student's Guide to Power Platform</h3>
+                        <p>Practical advice for students learning Power Platform, including project ideas and career guidance.</p>
+                        <ul class="resource-list">
+                            <li>✅ 10 Student Project Ideas (with difficulty levels)</li>
+                            <li>✅ Free Learning Resources List</li>
+                            <li>✅ CV Template for Tech Students</li>
+                            <li>✅ Interview Preparation Guide</li>
+                            <li>✅ Certification Roadmap</li>
+                            <li>✅ LinkedIn Profile Optimization Tips</li>
+                        </ul>
+                        <a href="#" class="download-btn">Download Guide (8MB PDF)</a>
+                    </div>
+
+                    <div class="learning-card animate-on-scroll">
+                        <div class="learning-icon">📖</div>
+                        <h3>My Learning Journey Workbook</h3>
+                        <p>Track your own Power Platform learning with the same framework I used to go from beginner to certified.</p>
+                        <ul class="resource-list">
+                            <li>✅ Learning Goals Template</li>
+                            <li>✅ Project Planning Worksheets</li>
+                            <li>✅ Skills Assessment Rubric</li>
+                            <li>✅ Weekly Progress Tracker</li>
+                            <li>✅ Certification Study Schedule</li>
+                            <li>✅ Portfolio Development Guide</li>
+                        </ul>
+                        <a href="#" class="download-btn">Download Workbook (5MB PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Professional Development</h2>
+                <div class="section-intro animate-on-scroll">
+                    Combining academic study with professional certifications to build comprehensive expertise in information systems and Power Platform technologies.
+                </div>
+                <div class="certifications-grid">
+                    <div class="cert-card animate-on-scroll">
+                        <h3>PL-300</h3>
+                        <p>Microsoft Power BI Data Analyst Associate</p>
+                        <small>✅ Certified - 2024</small>
+                    </div>
+                    <div class="cert-card animate-on-scroll">
+                        <h3>PL-200</h3>
+                        <p>Power Platform Functional Consultant</p>
+                        <small>🔄 In Progress - Expected Early 2025</small>
+                    </div>
+                    <div class="cert-card animate-on-scroll">
+                        <h3>AZ-900</h3>
+                        <p>Microsoft Azure Fundamentals</p>
+                        <small>✅ Certified - 2024</small>
+                    </div>
+                    <div class="cert-card animate-on-scroll">
+                        <h3>AI-900</h3>
+                        <p>Azure AI Fundamentals</p>
+                        <small>✅ Certified - 2024</small>
+                    </div>
+                    <div class="cert-card animate-on-scroll">
+                        <h3>Google Analytics</h3>
+                        <p>GA4 & Cybersecurity Analyst</p>
+                        <small>✅ Certified - 2024</small>
+                    </div>
+                    <div class="cert-card animate-on-scroll">
+                        <h3>MSc Information Systems</h3>
+                        <p>University of West London</p>
+                        <small>🎓 Expected May 2025</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Let's Connect & Collaborate</h2>
+                <div class="section-intro animate-on-scroll">
+                    I'm always excited to connect with fellow students, professionals, and anyone interested in Power Platform. Whether you're just starting your journey or looking to collaborate on a project, I'd love to hear from you.
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card animate-on-scroll">
+                        <h3>📧 Email</h3>
+                        <p>smrehban@gmail.com</p>
+                        <small>Best for: Collaboration, questions, project discussions</small>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <h3>📱 Phone</h3>
+                        <p>+44 7365162885</p>
+                        <small>Best for: Urgent inquiries, interview scheduling</small>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <h3>📍 Location</h3>
+                        <p>Slough, Berkshire, UK</p>
+                        <small>Available for: On-site work, local meetups, university visits</small>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <h3>💼 LinkedIn</h3>
+                        <p>linkedin.com/in/syed-rehban</p>
+                        <small>Best for: Professional networking, sharing insights</small>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <p class="animate-on-scroll" style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                        Currently pursuing my MSc while gaining hands-on experience in Power Platform consulting.<br>
+                        Open to internships, graduate opportunities, and collaborative projects.
+                    </p>
+                    <div class="cta-buttons animate-on-scroll">
+                        <a href="mailto:smrehban@gmail.com" class="cta-button cta-primary">Let's Connect</a>
+                        <a href="#learning" class="cta-button cta-secondary">Free Resources</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Modals -->
+    <div id="blogModal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>My Power BI Learning Journey: From Zero to Dashboard</h2>
+            <p><em>Published: December 15, 2024 | Category: Learning Journey</em></p>
+            
+            <h3>The Beginning: Why I Started</h3>
+            <p>When I began my MSc in Information Systems at the University of West London, Power BI was just another tool mentioned in the curriculum. I had some experience with Excel, but business intelligence seemed like an intimidating field reserved for data scientists.</p>
+            
+            <p>Everything changed when I started my role at CPRE. They needed someone to help make sense of their fundraising data, and suddenly I was thrown into the deep end of Power BI development.</p>
+            
+            <h3>The Learning Curve: Steeper Than Expected</h3>
+            <p>My first attempt at creating a dashboard was... humbling. I spent three days trying to create what I now know is a simple bar chart. Here were my biggest early mistakes:</p>
+            
+            <ul>
+                <li><strong>Trying to build everything at once:</strong> I wanted my first dashboard to do everything - track donations, segment donors, predict trends, and more. I learned to start simple.</li>
+                <li><strong>Ignoring data quality:</strong> I assumed the data was clean and spent hours troubleshooting visualizations when the real issue was messy source data.</li>
+                <li><strong>Overcomplicating DAX:</strong> I tried to write complex formulas before mastering basic functions like SUM() and AVERAGE().</li>
+            </ul>
+            
+            <h3>The Breakthrough Moment</h3>
+            <p>My breakthrough came when I stopped trying to impress and started focusing on solving actual business problems. Instead of building flashy visualizations, I asked my colleagues: "What questions do you need answered?"</p>
+            
+            <p>This shift in mindset led to my first successful dashboard - a simple donation tracking report that showed daily totals, top donors, and campaign performance. It wasn't fancy, but it saved the team 2 hours of manual work every week.</p>
+            
+            <h3>Current Projects and What's Next</h3>
+            <p>Today, I'm working on more complex integrations at CPRE, including automated data flows and advanced analytics. I'm also preparing for the PL-200 certification to expand my Power Platform skills.</p>
+            
+            <p>But the most rewarding part isn't the technical complexity - it's seeing how these tools genuinely help people make better decisions and save time for more meaningful work.</p>
+            
+            <h3>Advice for Fellow Beginners</h3>
+            <ol>
+                <li><strong>Start with real problems:</strong> Don't build dashboards just for practice. Find actual questions that need answering.</li>
+                <li><strong>Embrace the basics:</strong> Master simple charts before attempting complex visualizations.</li>
+                <li><strong>Learn DAX gradually:</strong> Start with SUM(), COUNT(), and AVERAGE(). Everything else builds on these.</li>
+                <li><strong>Join the community:</strong> The Power BI community is incredibly welcoming and helpful.</li>
+                <li><strong>Document your learning:</strong> Keep notes on what works and what doesn't. You'll reference them later.</li>
+            </ol>
+            
+            <p><em>What's your biggest Power BI challenge right now? I'd love to hear about your learning journey - connect with me on LinkedIn!</em></p>
+        </div>
+    </div>
+
+    <div id="blogModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>5 Power Automate Mistakes I Made (So You Don't Have To)</h2>
+            <p><em>Published: December 10, 2024 | Category: Power Automate</em></p>
+            
+            <p>When I started building automated workflows for CPRE's volunteer management system, I thought it would be straightforward. After all, Power Automate has a visual interface - how hard could it be?</p>
+            
+            <p>Turns out, quite hard when you don't know what you're doing. Here are the five biggest mistakes I made, so you can learn from my experience rather than repeating it.</p>
+            
+            <h3>Mistake #1: Not Testing with Sample Data First</h3>
+            <p><strong>What I Did Wrong:</strong> I built my entire flow using live volunteer data from day one. When something went wrong (and it did), it affected real records.</p>
+            
+            <p><strong>The Consequence:</strong> I accidentally created 50 duplicate volunteer records before realizing my duplicate detection logic wasn't working correctly.</p>
+            
+            <p><strong>The Fix:</strong> Always start with a small sample dataset or test records. I now create 5-10 test records first and run my flows against those until everything works perfectly.</p>
+            
+            <h3>Mistake #2: Forgetting Error Handling</h3>
+            <p><strong>What I Did Wrong:</strong> My first flows had no error handling. When something failed (missing fields, API timeouts, invalid data), the entire process just stopped with no notification.</p>
+            
+            <p><strong>The Fix:</strong> Now I add error handling to every action that could fail. My standard approach includes timeout settings, "Configure run after" settings, email notifications, and error logging.</p>
+            
+            <h3>Mistake #3: Making Flows Too Complex Too Quickly</h3>
+            <p><strong>What I Did Wrong:</strong> I tried to automate the entire volunteer lifecycle in one massive flow.</p>
+            
+            <p><strong>The Fix:</strong> I broke it down into smaller, focused flows. Each flow does one thing well, making them easier to maintain and troubleshoot.</p>
+            
+            <h3>What I'd Do Differently Now</h3>
+            <p>If I were starting the volunteer integration project today, my approach would be:</p>
+            <ol>
+                <li><strong>Discovery phase:</strong> Spend more time understanding the current process</li>
+                <li><strong>Prototype quickly:</strong> Build a minimal working version first</li>
+                <li><strong>Test thoroughly:</strong> Use sample data and involve real users</li>
+                <li><strong>Deploy gradually:</strong> Start small and scale up</li>
+                <li><strong>Monitor closely:</strong> Watch for issues and gather feedback</li>
+            </ol>
+            
+            <p><em>What Power Automate challenges are you facing? I'd love to help troubleshoot - connect with me on LinkedIn!</em></p>
+        </div>
+    </div>
+
+    <div id="blogModal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Getting Started with Dynamics 365: A Student's Perspective</h2>
+            <p><em>Published: December 5, 2024 | Category: Dynamics 365</em></p>
+            
+            <p>As an MSc student working with Dynamics 365 at CPRE, I've discovered that CRM systems are far more powerful than I initially thought. Here's what I've learned and what I wish someone had told me when I started.</p>
+            
+            <h3>What I Thought CRM Was</h3>
+            <p>Before working with Dynamics 365, I thought CRM was just a fancy contact database. Store names, emails, phone numbers - done. How wrong I was!</p>
+            
+            <h3>What CRM Actually Is</h3>
+            <p>CRM is the central nervous system of an organization's relationship management. At CPRE, it tracks:</p>
+            <ul>
+                <li>Donor interactions and giving history</li>
+                <li>Volunteer engagement and activities</li>
+                <li>Campaign performance and attribution</li>
+                <li>Communication preferences and compliance</li>
+                <li>Event participation and feedback</li>
+            </ul>
+            
+            <h3>Key Lessons for Students</h3>
+            <ol>
+                <li><strong>Start with the business process:</strong> Understand how the organization works before diving into configuration</li>
+                <li><strong>Data quality is everything:</strong> Clean data in = useful insights out</li>
+                <li><strong>User adoption matters most:</strong> The best system is useless if people don't use it</li>
+                <li><strong>Integration is key:</strong> CRM works best when connected to other systems</li>
+            </ol>
+            
+            <h3>Resources That Helped Me</h3>
+            <ul>
+                <li>Microsoft Learn modules for Dynamics 365</li>
+                <li>Hands-on practice in trial environments</li>
+                <li>YouTube tutorials for specific scenarios</li>
+                <li>Community forums for troubleshooting</li>
+            </ul>
+            
+            <p><em>Are you starting your CRM journey? I'd love to share more specific tips - reach out on LinkedIn!</em></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Syed Mohammad Rehban. All rights reserved. | Microsoft Power Platform Consultant & MSc Student</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                Learning • Building • Sharing • Growing together
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function() {
+                this.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate progress bars when they come into view
+        const progressBars = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0%';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 500);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressBars.forEach(bar => {
+            progressObserver.observe(bar);
+        });
+
+        // Download button animations
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const originalText = this.textContent;
+                this.textContent = 'Preparing Download...';
+                this.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    this.textContent = 'Download Ready!';
+                    this.style.background = 'rgba(46, 204, 113, 0.8)';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.opacity = '1';
+                        this.style.background = 'rgba(255, 255, 255, 0.2)';
+                    }, 2000);
+                }, 1500);
+            });
+        });
+
+        // Project link interactions
+        document.querySelectorAll('.project-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('This would open detailed project documentation. Currently in development!');
+            });
+        });
+
+        // Contact form simulation
+        document.querySelectorAll('a[href="mailto:smrehban@gmail.com"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Email contact clicked');
+            });
+        });
+    </script>
+</body>
+</html>
